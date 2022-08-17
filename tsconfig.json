@@ -1,8 +1,18 @@
 {
-  "extends": "./../../tsconfig.json",
   "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "incremental": true,
+    "allowJs": true,
     "baseUrl": "./",
     "outDir": "./dist"
   },
-  "include": ["*.ts", "**/*.ts"]
+  "include": ["*.ts", "**/*.ts"],
+  "exclude": ["../node_modules", "./**/dist"]
 }
