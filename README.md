@@ -22,8 +22,8 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@quantform/sqlite">
-    <img src="https://img.shields.io/npm/v/@quantform/sqlite.svg?logo=npm&logoColor=fff&label=@quantform/sqlite&color=03D1EB" alt="quantform/sqlite on npm" />
+  <a href="https://www.npmjs.com/package/create-quantform-app">
+    <img src="https://img.shields.io/npm/v/create-quantform-app.svg?logo=npm&logoColor=fff&label=create-quantform-app&color=03D1EB" alt="create-quantform-app on npm" />
   </a>&nbsp;
   <a href="LICENSE.md">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="quantform on npm" />
@@ -32,7 +32,7 @@
 
 <hr>
 
-## Installation
+## Usage
 
 ```
 npx create-quantform-app my-app
