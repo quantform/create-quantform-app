@@ -3,7 +3,7 @@
 import { exec } from 'child_process';
 import { program } from 'commander';
 import * as editJsonFile from 'edit-json-file';
-import { copyFileSync, mkdirSync } from 'fs';
+import { copyFileSync, mkdirSync, writeFileSync } from 'fs';
 import { chdir } from 'process';
 import { promisify } from 'util';
 
@@ -19,6 +19,7 @@ program
     await addTypescript();
     await copyTemplateFiles();
     await addDependencies();
+    await addSWCConfig();
   })
   .parse(process.argv);
 
@@ -58,6 +59,20 @@ async function addTypescript() {
   config.set('include', ['*.ts', 'src/*']);
   config.set('exclude', ['node_modules', 'test', 'dist', '**/*spec.ts']);
 
+  config.save();
+}
+
+async function addSWCConfig() {
+  writeFileSync('./.swcrc', '{}');
+  const config = editJsonFile(`./.swcrc`);
+  config.set('$schema', 'http://json.schemastore.org/swcrc');
+  config.set('jsc.parser.syntax', 'typescript');
+  config.set('jsc.parser.tsx', false);
+  config.set('module.type', 'commonjs');
+  config.set('module.strict', false);
+  config.set('module.strictMode', true);
+  config.set('module.lazy', false);
+  config.set('module.noInterop', false);
   config.save();
 }
 
